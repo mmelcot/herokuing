@@ -5,15 +5,21 @@ jobs:
       - image: 'circleci/node:6'
     steps:
       - checkout
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Setup Dependencies
-          command: >
-            cd client &&
+          command: |
+            cd client
             npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - client/node_modules
       - run:
           name: Run front-end scripts
-          command: >
-            cd client &&
+          command: |
+            cd client
             npm run test:nowatch
 
 

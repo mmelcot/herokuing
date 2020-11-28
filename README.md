@@ -20,46 +20,6 @@ A model of how you can set up your project for development, testing & deployment
 
 ---
 
-## Directory Structure
-
-
-```
-.
-├── .circleci/
-|   └── config.yml
-|
-├── api/
-|   ├── db
-|   │   └── README.md
-|   ├── dev.js
-|   ├── middleware.js
-|   ├── models
-|   │   └── User.js
-|   ├── routes
-|   │   ├── home.js
-|   │   ├── login.js
-|   │   └── test.js
-|   ├── server.js
-|   └── __test__
-|       └── example.spec.js`
-|
-├── client/
-│   ├── build
-│   ├── coverage
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── public
-│   ├── README.md
-│   └── src
-|
-├── index.js
-└── package.json
-```
-
-[TOP](#organized-for-deployment)
-
----
-
 ## Development
 
 ### API
@@ -109,7 +69,7 @@ At first you can deploy your project from you local machine.
 
 After creating an account and setting up the Heroku CLI, you can deploy your project by running `git push heroku master` from the top level of your project.
 
-## Automated
+### Automated
 
 It's also possible to configure your Heroku deployment to build from the `master` branch of your github repository each time it is changed.
 
@@ -143,6 +103,14 @@ npm install
 npm run test:watch
 ```
 
+### Continuous integration
+
+Test run on each commit on the master branch using [Github actions](https://docs.github.com/en/free-pro-team@latest/actions). The configuration can be found in `.github/workflows/node.js.yml`.
+
+[TOP](#organized-for-deployment)
+
+---
+
 ## Helpful Links
 
 * [Heroku devhints](https://devhints.io/heroku)
@@ -151,5 +119,4 @@ npm run test:watch
 
 [TOP](#organized-for-deployment)
 
----
 ---
